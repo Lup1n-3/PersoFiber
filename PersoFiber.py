@@ -4,17 +4,17 @@ def limpiar_pantalla():
     os.system('cls' if os.name == 'nt' else 'clear')
 
 def generar_archivo(nombre_archivo, sufijo, desde, hasta):
-    print(f"\nGenerando archivo: {nombre_archivo}")
+    print(f"Generando para sufijo {sufijo}...")
     with open(nombre_archivo, "a") as archivo:
         for i in range(desde, hasta):
             archivo.write(f"{sufijo}{i}\n")
-    print("Archivo generado exitosamente.\n")
 
 def opcion_hombre():
     archivo = "PersoFiber_hombre.txt"
     if not os.path.exists(archivo):
         print("Archivo para hombres no encontrado. Creando...")
         generar_archivo(archivo, "004", 1000000, 6000000)
+        print("Archivo generado exitosamente.")
     else:
         print(f"El archivo '{archivo}' ya existe. No se generó uno nuevo.")
     volver_al_menu()
@@ -24,6 +24,7 @@ def opcion_mujer():
     if not os.path.exists(archivo):
         print("Archivo para mujeres no encontrado. Creando...")
         generar_archivo(archivo, "014", 1000000, 6000000)
+        print("Archivo generado exitosamente.")
     else:
         print(f"El archivo '{archivo}' ya existe. No se generó uno nuevo.")
     volver_al_menu()
@@ -55,7 +56,29 @@ def opcion_personalizada():
         print(f"El archivo '{nombre_archivo}' ya existe. No se generó uno nuevo.")
     else:
         generar_archivo(nombre_archivo, sufijo, desde, hasta)
+        print("Archivo generado exitosamente.")
 
+    volver_al_menu()
+
+def opcion_generar_combinado():
+    archivo_salida = "PersoFiber_combinado.txt"
+    sufijo_hombre = "004"
+    sufijo_mujer = "014"
+    desde = 1000000
+    hasta = 6000000
+
+    print("\nGenerando archivo combinado con sufijos de hombre y mujer...")
+
+    if os.path.exists(archivo_salida):
+        os.remove(archivo_salida)  # eliminar si ya existe
+
+    # Primero sufijo hombre
+    generar_archivo(archivo_salida, sufijo_hombre, desde, hasta)
+
+    # Luego sufijo mujer
+    generar_archivo(archivo_salida, sufijo_mujer, desde, hasta)
+
+    print(f"\nArchivo generado exitosamente: {archivo_salida}")
     volver_al_menu()
 
 def volver_al_menu():
@@ -74,6 +97,7 @@ def main():
     print("  1 - Generar diccionario para Hombres")
     print("  2 - Generar diccionario para Mujeres")
     print("  3 - Crear diccionario personalizado")
+    print("  4 - Generar diccionario combinado (Hombres + Mujeres)")
     print("  0 - Salir")
 
     try:
@@ -84,6 +108,8 @@ def main():
             opcion_mujer()
         elif seleccion == 3:
             opcion_personalizada()
+        elif seleccion == 4:
+            opcion_generar_combinado()
         elif seleccion == 0:
             print("\nGracias por usar PersoFiber. Hasta luego.")
             input("Presione Enter para cerrar el programa...")
