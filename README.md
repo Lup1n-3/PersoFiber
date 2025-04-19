@@ -1,40 +1,42 @@
-
 # PersoFiber
 
-**PersoFiber** es una herramienta interactiva en Python para generar diccionarios de texto con patrones personalizados, especialmente diseñados para simular contraseñas comunes utilizadas por clientes de servicios como Fibertel o Personal.
+**PersoFiber** es una herramienta interactiva escrita en Python que permite generar diccionarios de texto con patrones personalizados, ideal para escenarios donde se simulan contraseñas o identificadores similares a los usados por clientes de Fibertel o Personal.
 
-## Características
+## 🛠 Características
 
-- Generación rápida de diccionarios con sufijos predeterminados para hombres (`004`) y mujeres (`014`).
-- Opción para crear diccionarios personalizados con sufijos y rangos definidos por el usuario.
-- Comprobación de existencia de archivos para evitar sobrescritura accidental.
-- Interfaz de consola intuitiva.
+- ✅ Generación de diccionario para hombres con el sufijo `004`.
+- ✅ Generación de diccionario para mujeres con el sufijo `014`.
+- 🔧 Modo personalizado: elegí tu propio sufijo y rango numérico.
+- 🔁 Opción para crear un archivo combinado (hombres + mujeres).
+- 🧠 Evita sobrescribir archivos existentes por accidente.
+- 🖥 Interfaz en consola clara y fácil de usar.
 
-## Uso
+## 🚀 Uso
 
-Al ejecutar el script, se presenta un menú con las siguientes opciones:
+Al ejecutar el script, verás un menú con estas opciones:
 
-1. **Generar diccionario para Hombres:** Crea un archivo llamado `PersoFiber_hombre.txt` con entradas desde `0041000000` hasta `0045999999`.
-2. **Generar diccionario para Mujeres:** Crea un archivo llamado `PersoFiber_mujer.txt` con entradas desde `0141000000` hasta `0145999999`.
-3. **Crear diccionario personalizado:** El usuario puede elegir un sufijo de 3 dígitos y definir el rango numérico.
-0. **Salir:** Cierra el programa.
+1. **Generar diccionario para Hombres:**  
+   Crea `PersoFiber_hombre.txt` con combinaciones de `0041000000` a `0045999999`.
 
-## Requisitos
+2. **Generar diccionario para Mujeres:**  
+   Crea `PersoFiber_mujer.txt` con combinaciones de `0141000000` a `0145999999`.
+
+3. **Crear diccionario personalizado:**  
+   El usuario define un sufijo (de 3 dígitos) y el rango numérico inicial y final.
+
+4. **Generar diccionario combinado:**  
+   Crea `PersoFiber_combinado.txt` con sufijos `004` y `014` en el mismo archivo.
+
+0. **Salir:**  
+   Cierra el programa.
+
+## ⚙ Requisitos
 
 - Python 3.x
-- Sistema operativo compatible con `os.system('cls'/'clear')` (Windows/Linux/macOS)
+- Compatible con Windows, Linux o macOS  
+  (usa `os.system('cls'/'clear')` según el sistema operativo)
 
-## Ejecución
+## ▶ Ejecución
 
 ```bash
-python3 perso_fiber.py
-```
-
-## Notas
-
-- Los archivos generados se guardan en el mismo directorio donde se ejecuta el script.
-- Si el archivo ya existe, no se sobrescribirá.
-
-## Licencia
-
-Este script es de uso libre para propósitos educativos.
+python3 PersoFiber.py
